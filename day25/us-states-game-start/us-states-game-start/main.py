@@ -18,14 +18,20 @@ guess_states = []
 while len(guess_states) < 50:
     answer_state = screen.textinput(title=f"{len(guess_states)}/50 State Correct",
                                     prompt="What's another state name?").title()
+
     if answer_state == "Exit":
-        missing_states = []
-        for state in state_list:
-            if state not in guess_states:
-                missing_states.append(state)
+        missing_states = [state for state in state_list if state not in guess_states]
         new_data = pd.DataFrame(missing_states)
         new_data.to_csv("states_to_learn.csv")
         break
+    # if answer_state == "Exit":
+    #     missing_states = []
+    #     for state in state_list:
+    #         if state not in guess_states:
+    #             missing_states.append(state)
+    #     new_data = pd.DataFrame(missing_states)
+    #     new_data.to_csv("states_to_learn.csv")
+    #     break
     if answer_state in state_list:
         guess_states.append(answer_state)
         x_cor = int(data.x[data.state == f"{answer_state}"])
