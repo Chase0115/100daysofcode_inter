@@ -3,4 +3,7 @@ OOP,
 Turtle GUI,
 Read and write files,
 Manage CSV files,
-Pandas Basic,
+Pandas,
+tkinter GUI programming,
+try except,
+Json
